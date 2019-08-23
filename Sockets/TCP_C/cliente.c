@@ -60,11 +60,10 @@ int main(int argc, char *argv[])
 	
 	int aux = 0;
 	do{
-		//printf("> ");
 		
 		scanf("%s",mensagem);
-		int x = strcmp(mensagem, "fim");
-		if(x == 0){
+		
+		if(strcmp(mensagem, "fim") == 0){
 			close(socket_desc); 
 			aux = 1;
 		}
