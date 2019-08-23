@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 	printf("Conectado no servidor\n");
-	/*****************************************/
 
 	/*******COMUNICAO - TROCA DE MENSAGENS **************/
 
@@ -73,11 +72,8 @@ int main(int argc, char *argv[])
 			send(socket_desc, mensagem, strlen(mensagem), 0);
 		}
 	}while(aux < 1);
-	//scanf("%s",mensagem);
-	//printf("%s",mensagem);
+	
 
-	//Enviando uma mensagem
-	//mensagem = "Oi servidor"; 
 	//if (send(socket_desc, mensagem, strlen(mensagem), 0) < 0)
 	//{
 	//	printf("Erro ao enviar mensagem\n");
@@ -96,8 +92,6 @@ int main(int argc, char *argv[])
 	resposta_servidor[tamanho] = '\0'; // adicionando fim de linha na string
 	puts(resposta_servidor);*/
 
-	
-	//close(socket_desc); // fechando o socket
 
 	printf("Cliente finalizado com sucesso!\n");
 	return 0;
