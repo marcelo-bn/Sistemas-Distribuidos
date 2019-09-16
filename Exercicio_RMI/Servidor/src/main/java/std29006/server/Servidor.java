@@ -12,7 +12,7 @@ public class Servidor {
 
     private static String nomeServidor = "127.0.0.1";
     private static int porta = 12345;
-    private static final String NOMEOBJDIST = "MeuContador";
+    private static final String NOMEOBJDIST = "MeuInventario";
     public static void main(String args[]){
         try {
             // recebendo nome do servidor por argumento de linha de comando

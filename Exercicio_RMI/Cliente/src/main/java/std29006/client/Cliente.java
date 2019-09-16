@@ -13,8 +13,7 @@ import java.util.logging.Logger;
 public class Cliente {
     private static String nomeServidor;
     private static int porta = 12345;
-    private static final String NOMEOBJDIST = "MeuContador";
-    private String nome, macAdress, freq, local;
+    private static final String NOMEOBJDIST = "MeuInventario";
 
     public static void main(String args[]) {
 
@@ -52,11 +51,16 @@ public class Cliente {
 
             }
             else if (args[1].equals("list")) {
+
                 ArrayList<String> aux = stub.listaInventario();
                 System.out.println("> APs cadastrados");
-                for (int i = 0; i < aux.size(); i++) {
-                    System.out.println(aux.get(i));
+                if (aux.isEmpty()) System.out.println("> Nenhum AP está cadastrado");
+                else {
+                    for (int i = 0; i < aux.size(); i++) {
+                        System.out.println(aux.get(i));
+                    }
                 }
+
 
             } else {
                 System.out.println("Error!");
