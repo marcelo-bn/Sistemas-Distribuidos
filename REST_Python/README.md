@@ -1,1 +1,1 @@
-Documentação API inventário de livros: https://app.apiary.io/inventariolivros
+Documentação API inventário de livros: https://inventariolivros.docs.apiary.io
