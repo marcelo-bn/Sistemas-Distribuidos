@@ -1,0 +1,89 @@
+FORMAT: 1A
+HOST: http://localhost:5000
+
+# Inventário de livros
+
+API para inventário de livros.
+
+# Group Inventário
+
+## Livros  [/livros]
+
+### Listar todos os livros [GET]
+
++ Response 200 (application/json)
+
+        {
+             "id": 1,
+             "titulo": "Linguagem de Programacao C",
+            "autor": "Dennis Ritchie"
+        },
+        {
+            "id": 2,
+            "titulo": "Java como programar",
+            "autor": "Deitel & Deitel"
+        }
+
+### Adicionar livro [POST]
+Para Adicionar um novo livro é necessário fornecer um objeto JSON contendo os seguintes dados:
+
++ título (string) - Título do livro
++ autor (string)  - Nome do autor
+
++ Request (application/json)
+
+        {
+            "titulo": "Livro exemplo",
+            "autor" : "exemplo"
+        }
+
+
+## Livros Específicos [/livros/{idLivro}]
+
+O `idLivro`deve ser informado
+
++ Parameters
+    + idLivro: 1 (int) - Identificador do livro
+
+### Listar livro específico [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "titulo": "Linguagem de Programacao C",
+            "autor": "Dennis Ritchie"
+        }
+       
+### Excluir livro específico [DELETE]
+
++ Response 200 (application/json)
+
+        {
+             "resultado": "True"
+        }
+
+
+### Atualizar dados de um livro [PUT]
+
++ Request (application/json)
+
+        {
+            "titulo": "Novo título",
+        }
+
++ Response 200 (text/plain)
+
+        {
+             "livro": resultado[0]
+        }
+        
+## Autenticação [/livros/livrosautenticado]
+
+### Autenticacão simples [GET]
+
++ Response 200 (text/plain)
+
+        {
+             "livroS": "livros"
+        }
