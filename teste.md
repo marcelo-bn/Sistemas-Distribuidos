@@ -27,6 +27,11 @@ seus serviços em uma porta padrão definida como 1234, cada processo Trabalhado
 ```sh
  ServerSocket servidor = new ServerSocket(1234);
 ```
+
+Com todas estas mudanças realizadas os processos já podem ser executados (é preferível que se utilize um IDE para uma melhor experiência do projeto como o IntelliJ), porém é necessário executar PRIMEIRAMENTE o processo Mestre e, após este já estando ativo os Trabalhadores podem ser executados.
+
+
+
 #### • Listar APs que operam na frequência de 5GHz
 
 ```sh
