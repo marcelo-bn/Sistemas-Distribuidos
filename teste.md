@@ -19,12 +19,13 @@ para testes locais do programa (endereço da máquina local).
 
 Realizado este passo para a troca de endereço IP do processo Mestre, é necessário entender o processo de conexão
 utilizando as portas. O projeto implementa um sistema de comunicação bidirecional e para isto será necessário estabelecer
-duas conexões por Trabalhadores, sendo assim, este mecanismo funciona da seguinte maneira: 
+duas conexões por Trabalhadores, sendo assim, este mecanismo funciona da seguinte maneira: O processo Mestre disponibilizará 
+seus serviços em uma porta padrão definida como 1234, cada processo Trabalhador irá se conectar primeiramente nesta porta e logo em seguida o Mestre enviará uma mensagem aos clientes para se conectar em uma porta livre escolhida pelo sistema automaticamente (é válido lembrar que todos esses processos de conexão via Sockets foi implementado utilizando as bibliotecas java.net.Socket e java.net.ServerSocket). Caso o usuário queira trocar a porta padrão, basta realizar a mudança no parâmetro do método ServerSocket() localizado na pasta do processo Mestre no arquivo Mestre.java.
 
-#### • Listar APs cadastrados
+#### • Método utilizado realizar conexões na porta padrão escolhida.
 
 ```sh
- java Cliente <endereço servidor> list
+ ServerSocket servidor = new ServerSocket(1234);
 ```
 #### • Listar APs que operam na frequência de 5GHz
 
