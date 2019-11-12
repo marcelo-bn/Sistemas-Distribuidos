@@ -35,6 +35,7 @@ ao estabelecer uma conexão é alertado ao usuário como uma mensagem indicando 
 #### • Interface do usuário no processo Mestre.
 
 ```sh
+ > Interface de controle
  [1] Verificar estado
  [2] Configurar trabalhos
  [3] Parar trabalho
