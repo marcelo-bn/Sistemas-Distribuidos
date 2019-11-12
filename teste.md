@@ -7,15 +7,19 @@ para a execução dos mesmos. Por definição, uma comunicação via Sockets nec
 IPs e portas de serviço dos processos que se deseja realizar uma conexão.
 Sendo assim, para o funcionamento deste projeto o usuário necessitará saber o endereço IP da máquina que executará
 o processo Mestre e adicioná-lo em todos os processos Trabalhadores. Para isto, deve-se acessar o código presente 
-na pasta dos Trabalhadores com o nome de Trabalhador01/Trabalhador02/Trabalhador/03.java e realizar a troca da variável 
+na pasta dos Trabalhadores com o nome de Trabalhador01/Trabalhador02/Trabalhador03.java e realizar a troca da variável 
 ipServidor para o endereço da máquina mestre. Abaixo está a linha que representa esta variável com o endereço usado
 para testes locais do programa (endereço da máquina local).
   
-   #### • Variável referente ao endereço IP do Mestre no códigos Trabalhadores.
+   #### • Variável referente ao endereço IP do Mestre nos códigos Trabalhadores.
 
 ```sh
  ipServidor = "127.0.0.1";
 ```
+
+Realizado este passo para a troca de endereço IP do processo Mestre, é necessário entender o processo de conexão
+utilizando as portas. O projeto implementa um sistema de comunicação bidirecional e para isto será necessário estabelecer
+duas conexões por Trabalhadores, sendo assim, este mecanismo funciona da seguinte maneira: 
 
 #### • Listar APs cadastrados
 
