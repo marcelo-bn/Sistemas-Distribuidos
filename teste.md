@@ -28,14 +28,18 @@ seus serviços em uma porta padrão definida como 1234, cada processo Trabalhado
  ServerSocket servidor = new ServerSocket(1234);
 ```
 
-Com todas estas mudanças realizadas os processos já podem ser executados (é preferível que se utilize um IDE para uma melhor experiência do projeto como o IntelliJ), porém é necessário executar PRIMEIRAMENTE o processo Mestre e, após este já estando ativo os Trabalhadores podem ser executados.
+Com todas estas mudanças realizadas os processos já podem ser executados (é preferível que se utilize uma IDE para uma melhor experiência do projeto como o IntelliJ), porém é necessário executar PRIMEIRAMENTE o processo Mestre e, após este já estando ativo os Trabalhadores podem ser executados.
+Com todos os processos executando, as conexões já são estabelecidades sendo possível observá-las no processo Mestre, pois,
+ao estabelecer uma conexão é alertado ao usuário como uma mensagem indicando as portas utilizadas nestas conexões. O Mestre possuirá uma interface que o usuário poderá navegar para realizar as devidas ações os Trabalhadores, essa interface possui as seguintes opções:
 
-
-
-#### • Listar APs que operam na frequência de 5GHz
+#### • Interface do usuário no processo Mestre.
 
 ```sh
- java Cliente <endereço servidor> list freq:5 
+ [1] Verificar estado
+ [2] Configurar trabalhos
+ [3] Parar trabalho
+ [4] Dispara trabalhos
+ [5] Configurações trabalhadores
 ```
 
 #### • Remover um AP do inventário
