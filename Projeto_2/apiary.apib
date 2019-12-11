@@ -1,0 +1,175 @@
+FORMAT: 1A
+HOST: http://localhost:5000
+
+# Protocolo de Commit por duas Fases.
+
+# Group Contas
+
+## Contas [/contas]
+
+### Lista de contas armazenadas [GET]
+
+Para receber lista de contas armazenadas.
+
++ Response 200
+
+        {
+            "contas" : {
+                {
+                    "numero" : "12345",
+                    "saldo" : "100,00"
+                },
+                {
+                    "numero" : "4345",
+                    "saldo" : "50,00"
+                },
+                {
+                    "numero" : "5678",
+                    "saldo" : "250,00"
+                }
+            }
+        }  
+
+# Group Réplicas
+
+## Réplicas [/contas/replicas]
+
+### Adicionar réplicas [POST]
+
+Adicionando lista de réplicas, recebe um arquivo JSON contendo as informações necessárias. Ao realizar 
+essa requisição o processo se torna coordenador.
+
++ Request (application/json)
+     
+        {
+            "replicas" : {
+                {
+                    "id" : "replica 1",
+                    "endpoint" : "http://localhost:12345"
+                },
+                {
+                    "id" : "replica 2",
+                    "endpoint" : "http://localhost:12354"
+                }
+            }
+        }  
+
++ Response 200
+    
+         { "Aplicações cadastradas!"} 
+
+### Excluir lista de réplicas [DELETE]
+
+Para excluir a lista de réplicas recebidas pela requisição anterior.
+
++ Response 200 (text/plain)
+
+        { "Lista deletada. Processo não é mais coordenador." }
+
+### Lista de réplicas armazenadas [GET]
+
+Retorna réplicas armazenadas na aplicação coordenadora. 
+
++ Response 200
+
+        {
+            "replicas" : {
+                {
+                    "id" : "replica 1",
+                    "endpoint" : "http://localhost:12345"
+                },
+                {
+                    "id" : "replica 2",
+                    "endpoint" : "http://localhost:12354"
+                }
+            }
+        } 
+
+
+
+# Group Seed
+
+## Seed [/contas/seed]
+
+### Adicionando semente [POST]
+
+Para adicionar número que será utilizado como semente para sorteio de número aleatório.
+    
++ Request (application/json)
+
+        {
+            "seed": "321"
+        }
+
++ Response 200
+
+        {"Semente recebida!"} 
+
+
+# Group Ação
+
+## Ação [/contas/acao]
+
+### Enviar uma ação [POST]
+
+Para enviar uma ação deve-se receber um documento JSON contendo os seguintes dados.
+
++ Request (application/json)
+        
+        {
+            "id" : "A381CBC6-02C9-4555-B127-CDCEA1AF8D49",
+            "operacao" : "credito",
+            "conta" : "1234",
+            "valor" : "7,00"
+        }
+
++ Response 201
+
+
+### Para enviar uma decisão de aprovação [PUT]
+
+Para realizar a operação deve-se fornecer um documento JSON com o id da operação.
+
++ Request (application/json)
+        
+        {
+            "id" : "A381CBC6-02C9-4555-B127-CDCEA1AF8D49",
+        }
+
++ Response 200
+
+
+### Para enviar uma decisão de negação [DELETE]
+
+Para interromper uma operação deve-se fornecer um documento JSON com o id da operação.
+
++ Request (application/json)
+        
+        {
+            "id" : "A381CBC6-02C9-4555-B127-CDCEA1AF8D49",
+        }
+
++ Response 200
+
+# Group Ações
+
+## Ações [/contas/acoes]
+
+### Lista de ações [GET]
+
+Para receber lista de ações realizadas.
+
++ Response 200
+
+        {
+            "acoes" : [
+                {
+                    "id" : "A381CBC6-02C9-4555-B127-CDCEA1AF8D49",
+                    "status" : "success"
+                },
+                {
+                    "id" : "00F49769-5AC1-4BD6-9B3D-7DBFCF6A8619",
+                    "status" : "fail"
+                }
+            ]
+        }  
