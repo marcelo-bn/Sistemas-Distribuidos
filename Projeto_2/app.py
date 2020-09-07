@@ -57,7 +57,7 @@ def obtem_contas():
     return jsonify({'contas': contas})
 
 
-# Retorna lista de répicas
+# Retorna lista de réplicas
 @app.route('/contas/replicas', methods=['GET'])
 def lista_replicas():
     if coordenador:
